@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import CalModal from './components/CalModal';
 import Draggable from 'react-native-draggable';
 import CalModal2 from './components/CalModal2';
-import { data } from './data/data';
 
 const App = () => {
   const [value, setValue] = useState("0");
@@ -13,7 +12,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      {/* <TextInput value={value} style={styles.TextInput} onPressIn={() => setModal(!modal)} />
+      <TextInput value={value} style={styles.TextInput} onPressIn={() => setModal(!modal)} />
       <TextInput value={value2} style={styles.TextInput} onPressIn={() => setModal2(!modal2)} />
       {modal ?
         <Draggable x={50} y={50}>
@@ -22,26 +21,11 @@ const App = () => {
         : null}
 
       {modal2 ?
-        <Draggable x={50} y={50}>
+        <Draggable x={50} y={50} >
           <CalModal2 value={value2} setValue={setValue2} modal={modal2} setModal={setModal2} />
         </Draggable>
-        : null} */}
+        : null}
 
-      {data.map((item, index) => (
-        <View key={index}>
-          <Text>{item.firstname}</Text>
-          <TextInput value={item.value} style={styles.TextInput} onPressIn={() => setModal2(!modal2)} />
-          {modal2 ?
-            <>
-           
-              <Draggable x={50} y={50}>
-                <CalModal2 value={item.value} setValue={setValue2} modal={modal2} setModal={setModal2} />
-              </Draggable>
-            </>
-            : null}
-
-        </View>
-      ))}
     </View>
   )
 }
