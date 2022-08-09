@@ -1,0 +1,46 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { CalculatorInput } from 'react-native-calculator'
+import Draggable from 'react-native-draggable';
+
+const App = () => {
+  const [value, setValue] = useState(0)
+
+  return (
+    <View style={styles.container}>
+
+      <CalculatorInput
+        fieldTextStyle={styles.inputText}
+        fieldContainerStyle={styles.input} 
+        value={value} 
+        onTextChange={(e) => setValue(e)}
+        modalAnimationType="slide" 
+        />
+        <Draggable x={50} y={50} onPressIn={()=> alert('f')}>
+        <Text>{value}</Text>
+    </Draggable>
+    </View>
+  )
+}
+
+export default App
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  input: {
+    height: 36,
+    width: 300,
+    borderColor: 'red',
+    borderWidth: 2,
+    borderBottomColor: 'red',
+    borderBottomWidth: 2
+  },
+  inputText: {
+    fontSize: 26,
+    marginLeft: 6
+  }
+})
