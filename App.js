@@ -12,8 +12,15 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <TextInput value={value} style={styles.TextInput} onPressIn={() => setModal(!modal)} />
-      <TextInput value={value2} style={styles.TextInput} onPressIn={() => setModal2(!modal2)} />
+      <TextInput value={value} style={styles.TextInput} onPressIn={() => {
+        setModal(!modal)
+        setModal2(false)
+      }
+      } />
+      <TextInput value={value2} style={styles.TextInput} onPressIn={() => {
+        setModal2(!modal2)
+        setModal(false)
+      }} />
       {modal ?
         <Draggable x={50} y={50}>
           <CalModal value={value} setValue={setValue} modal={modal} setModal={setModal} />
